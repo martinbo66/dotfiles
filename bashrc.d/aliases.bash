@@ -1,13 +1,10 @@
-alias b='bundle exec'
 alias br='for k in `git branch | sed s/^..//`; do echo -e `git log -1 --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k --`\\t"$k";done | sort'
-alias bup='bundleup'
 alias cl='clear'
 alias c='ccat'
 # Change to the root level directory the current git repository
 alias cdg='cd $(git rev-parse --show-toplevel || pwd)'
 alias cdw='cd `find . -type d -name webapp`'
 alias diff=colordiff
-alias dbundle="$HOME/Code/bundler/bin/bundle"
 alias find='find -L'
 alias gd='git diff'
 alias gmas='git fetch -p && git checkout master && git pull'
@@ -25,7 +22,8 @@ alias gso='git remote show origin'
 alias get='git'
 alias gh='git rev-parse --verify --short HEAD'
 alias gw="./gradlew --daemon"
-alias jj='java -jar -Dspring.profiles.active=local `find . -name "*service*.jar"`'
+alias jjs='java -jar -Dspring.profiles.active=local `find . -name "*service*.jar"`'
+alias jjw='java -jar -Dspring.profiles.active=local `find . -name "*worker*.jar"`'
 alias ls='ls -hFG'
 alias l='exa'
 alias la='exa -la'
