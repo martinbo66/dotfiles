@@ -25,10 +25,10 @@ alias gw="./gradlew --daemon"
 alias jjs='java -jar -Dspring.profiles.active=local `find . -name "*service*.jar"`'
 alias jjw='java -jar -Dspring.profiles.active=local `find . -name "*worker*.jar"`'
 alias ls='ls -hFG'
-alias l='exa'
-alias la='exa -la'
-alias ll='exa -l'
-alias ls='exa'
+alias l='eza'
+alias la='eza -la'
+alias ll='eza -l'
+alias ls='eza'
 alias mark='open -a "Marked 2"'
 alias mk='minikube'
 alias n='npx --no-install'
@@ -46,22 +46,6 @@ alias wt='title ${PWD##*/}'
 # Kubernetes CLI specific stuff
 alias pods='kubectl get pods -o wide'
 alias k='kubectl'
-alias kg='kubectl get'
-alias kgpod='kubectl get pod'
-alias kgall='kubectl get --all-namespaces all'
-alias kdp='kubectl describe pod'
-# kubectl apply
-alias kap='kubectl apply'
-# kubectl delete
-alias krm='kubectl delete'
-alias krmf='kubectl delete -f'
-# kubectl services
-alias kgsvc='kubectl get service'
-# kubectl deployments
-alias kgdep='kubectl get deployments'
-# kubectl misc
-alias kl='kubectl logs'
-alias kei='kubectl exec -it'
 
 # Function for naming terminal tabs
 function title {
