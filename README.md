@@ -55,19 +55,17 @@ In addition, during installation (see below), you will be prompted for your full
 
 ## Installation
 
-Choose a place to store the dotfiles, like `~/Code/dotfiles`.
+Choose a place to store the dotfiles, like `~/source/dotfiles`.
 
 ```
-git clone git://github.com/martinbo66/dotfiles ~/Code/dotfiles
-cd ~/Code/dotfiles
+git clone git://github.com/martinbo66/dotfiles ~/source/dotfiles
+cd ~/source/dotfiles
 ```
 
-Run one of the three installation options:
+Run the installer
 
 ```
-rake install:dotfiles # Install the dotfiles and scripts
-rake install:packages # Install homebrew packages and Mac defaults
-rake install          # Install all of the above (recommended)
+./install-dotfiles.sh # Install the dotfiles and scripts
 ```
 
 ### Changing your bash version
