@@ -13,3 +13,5 @@ fi
 
 
 complete -C /usr/local/bin/vault vault
+
+. "$HOME/.local/bin/env"
