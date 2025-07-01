@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.bin:$HOME/.docker/bin:$PATH
+export PATH=$HOME/bin:$HOME/.bin:$HOME/.docker/bin:/usr/local/opt/postgresql@15/bin:/Users/bmartin/swtools/apache-jmeter-5.6.3/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -159,3 +159,10 @@ export PATH="/usr/local/sbin:$PATH"
 
 # # Load Angular CLI autocompletion.
 # source <(ng completion script)
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/bmartin/.sdkman"
+[[ -s "/Users/bmartin/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/bmartin/.sdkman/bin/sdkman-init.sh"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
