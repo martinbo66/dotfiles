@@ -1,2 +1,3 @@
 # Database of previously entered template values
 /.db
+bin/lirio-crypto-cli
