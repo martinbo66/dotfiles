@@ -38,6 +38,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias o='open'
+alias adopr='create-pr.sh'
 alias startsonar='/usr/local/opt/sonarqube/bin/sonar console'
 alias tf='terraform'
 alias trim="tr -s \" \" | sed 's/^[ ]//g'"
