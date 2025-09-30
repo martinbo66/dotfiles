@@ -1,5 +1,5 @@
 // JWT Expiration Timestamp Generator
-// Note: JWT "exp" claim uses seconds since epoch, not milliseconds
+// Note: JWT "exp" claim uses seconds since epoch
 
 function generateJWTExpiration(): void {
     // Current time
