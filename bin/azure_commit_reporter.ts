@@ -109,7 +109,6 @@ class AzureReposCommitReporter {
       'lirio-app-gateway',
       'lirio-atc-prototype',
       'lirio-azure-marketplace',
-      'lirio-azure-marketplace-app',
       'lirio-behavioral',
       'lirio-bot',
       'lirio-client',
@@ -144,7 +143,6 @@ class AzureReposCommitReporter {
       'lirio-ml-feature-store',
       'lirio-orchestration',
       'lirio-platform-data-explorer',
-      'lirio-platform-operations',
       'lirio-power-apps-solution',
       'lirio-salesforce-events',
       'lirio-spam-test-tool',
@@ -164,7 +162,7 @@ class AzureReposCommitReporter {
     const allCommits: CommitInfo[] = [];
 
     for (const repo of repositories) {
-      console.log(`Checking repository: ${repo.name}...`);
+      // console.log(`Checking repository: ${repo.name}...`);
       try {
         const commits = await this.getCommitsByAuthor(
           repo.id,
@@ -184,7 +182,7 @@ class AzureReposCommitReporter {
           });
         }
 
-        console.log(`  Found ${commits.length} commits`);
+        // console.log(`  Found ${commits.length} commits`);
       } catch (error) {
         console.error(`  Error fetching commits: ${error}`);
       }
@@ -217,14 +215,12 @@ class AzureReposCommitReporter {
       return acc;
     }, {} as Record<string, CommitInfo[]>);
 
-    for (const [repoName, repoCommits] of Object.entries(byRepo)) {
-      markdown += `## ${repoName} (${repoCommits.length} commits)\n\n`;
-      
-      for (const commit of repoCommits) {
-        const date = new Date(commit.date).toLocaleString();
-        markdown += `- **[${commit.commitId}](${commit.url})** - ${date}\n`;
-        markdown += `  ${commit.comment}\n\n`;
-      }
+    // Sort repositories by commit count (descending)
+    const sortedRepos = Object.entries(byRepo).sort((a, b) => b[1].length - a[1].length);
+
+    markdown += `## Commits by Repository\n\n`;
+    for (const [repoName, repoCommits] of sortedRepos) {
+      markdown += `- **${repoName}**: ${repoCommits.length} commits\n`;
     }
 
     return markdown;
