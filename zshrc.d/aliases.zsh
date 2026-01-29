@@ -20,7 +20,7 @@ alias gpb='git prune-branches'
 alias gs='git st'
 alias gso='git remote show origin'
 alias get='git'
-alias gh='git rev-parse --verify --short HEAD'
+alias ghash='git rev-parse --verify --short HEAD'
 alias gw="./gradlew --daemon"
 alias jjs='java -jar -Dspring.profiles.active=local `find . -name "*service*.jar"`'
 alias jjw='java -jar -Dspring.profiles.active=local `find . -name "*worker*.jar"`'
