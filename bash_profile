@@ -15,3 +15,4 @@ export SDKMAN_DIR="/Users/bmartin/.sdkman"
 [[ -s "/Users/bmartin/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/bmartin/.sdkman/bin/sdkman-init.sh"
 
 . "$HOME/.local/bin/env"
+. "$HOME/.cargo/env"
