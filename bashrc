@@ -12,4 +12,6 @@ if [ -d ~/.bin ]; then
 fi
 
 
-complete -C /usr/local/bin/vault vault
+
+. "$HOME/.local/bin/env"
+. "$HOME/.cargo/env"

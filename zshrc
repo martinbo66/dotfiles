@@ -1,8 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.bin:$HOME/.docker/bin:$PATH
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+# direnv initialization
+eval "$(direnv hook zsh)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -91,7 +96,6 @@ plugins=(
   zsh-history-substring-search
   zsh-syntax-highlighting
 )
-
 export AUTO_NOTIFY_THRESHOLD=20
 AUTO_NOTIFY_IGNORE+=("docker codium code idea stree")
 
@@ -150,12 +154,30 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
+source "$HOME/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH="/usr/local/sbin:$PATH"
 
+export PATH="/Users/bmartin/.local/bin:$PATH"
+
+# Added by Windsurf
+export PATH="/Users/bmartin/.codeium/windsurf/bin:$PATH"
+
+. "$HOME/.local/bin/env"
 
 # # Load Angular CLI autocompletion.
 # source <(ng completion script)
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/bmartin/.sdkman"
+[[ -s "/Users/bmartin/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/bmartin/.sdkman/bin/sdkman-init.sh"
+
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/bmartin/.antigravity/antigravity/bin:$PATH"

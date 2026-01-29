@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# This script will delete all local git branches that have been merged into master,
-# and then prompt before doing the same for all remote branches that have been merged into master.
+# This script will delete all local git branches that have been merged into main,
+# and then prompt before doing the same for all remote branches that have been merged into main.
 #
 # Code taken from http://devblog.springest.com/a-script-to-remove-old-git-branches,
 # with modifications.
 
-# This has to be run from master
-git checkout master
+# This has to be run from main
+git checkout main
 
 # Update our list of remotes
 git fetch
@@ -16,18 +16,18 @@ git remote prune origin
 echo "Remove fully merged local branches..."
 
 # Remove local fully merged branches (ignoring those named "release-#")
-git branch --merged master | grep -E -v 'master$|development$|release-.+$' | xargs git branch -d
-git branch --merged master | grep -E 'release-.+$' | xargs echo "! Ignoring release branch:"
+git branch --merged main | grep -E -v 'main$|development$|release-.+$' | xargs git branch -d
+git branch --merged main | grep -E 'release-.+$' | xargs echo "! Ignoring release branch:"
 
 # Show remote fully merged branches
 echo "The following remote branches are fully merged and will be removed:"
-git branch -r --merged master | sed 's/ *origin\///' | grep -E -v 'master$|development$|release-.+|maintenance-.+$'
+git branch -r --merged main | sed 's/ *origin\///' | grep -E -v 'main$|development$|release-.+|maintenance-.+$'
 
 read -p "Continue (y/n)? "
 if [ "$REPLY" == "y" ]
 then
    # Remove remote fully merged branches
-   git branch -r --merged master | sed 's/ *origin\///' \
-             | grep -E -v 'master$|development$|release-.+|maintenance-.+$' | xargs -I% git push origin :%
+   git branch -r --merged main | sed 's/ *origin\///' \
+             | grep -E -v 'main$|development$|release-.+|maintenance-.+$' | xargs -I% git push origin :%
    echo "Done!"
 fi
